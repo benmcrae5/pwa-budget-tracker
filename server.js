@@ -1,4 +1,4 @@
-const express = require("express");
+const Express = require("express");
 const logger = require("morgan");
 const mongoose = require("mongoose");
 const compression = require("compression");
@@ -6,15 +6,15 @@ const compression = require("compression");
 const PORT = process.env.PORT || 3001;
 const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/budget";
 
-const app = express();
+const app = Express();
 
 app.use(logger("dev"));
 
 app.use(compression());
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
+app.use(Express.urlencoded({ extended: true }));
+app.use(Express.json());
 
-app.use(express.static("public"));
+app.use(Express.static("public"));
 
 mongoose.connect(MONGODB_URI, {
   useNewUrlParser: true,
